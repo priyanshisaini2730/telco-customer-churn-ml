@@ -1,0 +1,25 @@
+# venvs
+.venv/
+venv/
+env/
+
+# OS cruft
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Big artifacts we don't want in git
+mlruns/
+artifacts/
+data/raw/
+data/processed/
+
+# Temporarily exclude old serving model (creator's runs) until retrained
+src/serving/model/
+
+# Secrets
+.env
+.gradio/
