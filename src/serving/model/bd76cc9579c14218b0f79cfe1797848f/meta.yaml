@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Priyanshi/Telco-Customer-Churn-ML/mlruns/780112023094547745/bd76cc9579c14218b0f79cfe1797848f/artifacts
+end_time: 1782186593702
+entry_point_name: ''
+experiment_id: '780112023094547745'
+lifecycle_stage: active
+run_id: bd76cc9579c14218b0f79cfe1797848f
+run_name: peaceful-crow-125
+run_uuid: bd76cc9579c14218b0f79cfe1797848f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1782186584442
+status: 3
+tags: []
+user_id: Priyanshi

@@ -24,16 +24,15 @@ distro==1.9.0
 docker==7.1.0
 entrypoints==0.4
 executing==2.2.0
-fastapi==0.115.0
+fastapi==0.115.12
 Flask==3.1.1
 fonttools==4.59.0
 gitdb==4.0.12
 GitPython==3.1.45
-gradio
+gradio==5.50.0
 graphene==3.4.3
 graphql-core==3.2.6
 graphql-relay==3.2.0
-great_expectations==1.5.8
 gunicorn==22.0.0
 h11==0.16.0
 idna==3.10
@@ -95,7 +94,6 @@ querystring-parser==1.2.4
 referencing==0.36.2
 requests==2.32.4
 rpds-py==0.27.0
-ruamel.yaml==0.18.14
 ruamel.yaml.clib==0.2.12
 scikit-learn==1.5.2
 scipy==1.16.1
@@ -106,7 +104,7 @@ sniffio==1.3.1
 SQLAlchemy==2.0.42
 sqlparse==0.5.3
 stack-data==0.6.3
-starlette==0.38.6
+starlette==0.46.2
 statsmodels==0.14.5
 threadpoolctl==3.6.0
 toolz==1.0.0
@@ -122,3 +120,5 @@ wcwidth==0.2.13
 Werkzeug==3.1.3
 xgboost==3.0.3
 zipp==3.23.0
+great_expectations==0.18.22
+ruamel.yaml==0.17.35

@@ -27,6 +27,7 @@ Production Deployment:
 import os
 import pandas as pd
 import mlflow
+from src.features.rfm_features import add_rfm_features
 
 # === MODEL LOADING CONFIGURATION ===
 # IMPORTANT: This path is set during Docker container build
@@ -119,6 +120,10 @@ def _serve_transform(df: pd.DataFrame) -> pd.DataFrame:
             df[c] = pd.to_numeric(df[c], errors="coerce")
             # Fill NaN with 0 (same as training preprocessing)
             df[c] = df[c].fillna(0)
+    
+    # === STEP 1.5: RFM-Inspired Feature Engineering ===
+    # Must exactly match training — see src/features/rfm_features.py
+    df = add_rfm_features(df)
     
     # === STEP 2: Binary Feature Encoding ===
     # Apply deterministic mappings for binary features

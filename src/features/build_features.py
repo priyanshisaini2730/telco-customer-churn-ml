@@ -1,4 +1,5 @@
 import pandas as pd
+from src.features.rfm_features import add_rfm_features
 
 
 def _map_binary_series(s: pd.Series) -> pd.Series:
@@ -49,6 +50,10 @@ def build_features(df: pd.DataFrame, target_col: str = "Churn") -> pd.DataFrame:
     """
     df = df.copy()
     print(f"🔧 Starting feature engineering on {df.shape[1]} columns...")
+
+    # === STEP 0: RFM-Inspired Feature Engineering ===
+    df = add_rfm_features(df)
+    print(f" 🆕 Added RFM features: num_services, charge_per_tenure_ratio, tenure_bucket")
 
     # === STEP 1: Identify Feature Types ===
     # Find categorical columns (object dtype) excluding the target variable

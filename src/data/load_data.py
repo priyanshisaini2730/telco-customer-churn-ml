@@ -13,5 +13,13 @@ def load_data(file_path: str) -> pd.DataFrame:
     """
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
-    
-    return pd.read_csv(file_path)
+
+    df = pd.read_csv(file_path)
+
+    # TotalCharges often has blanks in this dataset -> coerce to float,
+    # then fill (matches the same strategy preprocess.py already uses)
+    if "TotalCharges" in df.columns:
+        df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
+        df["TotalCharges"] = df["TotalCharges"].fillna(0)
+
+    return df
