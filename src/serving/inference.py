@@ -62,6 +62,14 @@ except Exception as e:
 # This ensures the model receives features in the expected order
 try:
     feature_file = os.path.join(MODEL_DIR, "feature_columns.txt")
+    if not os.path.exists(feature_file):
+        # Local-dev fallback layout: feature_columns.txt sits beside the
+        # mlflow model/ folder (in the parent "artifacts" dir), not inside
+        # it. Production's /app/model flattens both into the same folder,
+        # which is why this only shows up in local runs.
+        parent_feature_file = os.path.join(os.path.dirname(MODEL_DIR), "feature_columns.txt")
+        if os.path.exists(parent_feature_file):
+            feature_file = parent_feature_file
     with open(feature_file) as f:
         FEATURE_COLS = [ln.strip() for ln in f if ln.strip()]
     print(f"✅ Loaded {len(FEATURE_COLS)} feature columns from training")
