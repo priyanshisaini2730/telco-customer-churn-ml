@@ -95,7 +95,7 @@ Critical pattern: Training and serving must use identical feature transformation
 - **Trigger**: Push to main branch
 - **Actions**: Build Docker image → Push to Docker Hub (`prima30/telco-fastapi:latest`)
 - **Requirements**: `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` secrets
-- **Deployment**: Manual ECS service update (AWS Fargate + ALB)
+- **Deployment**: Manual pull + container restart on EC2
 
 ## Key Implementation Details
 
